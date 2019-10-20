@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 let inputObject = {
@@ -18,12 +17,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
+        <div classStyle="float: right;">
           {createHistogram(data)}
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
+        </div>
       </header>
     </div>
   );
@@ -46,8 +42,25 @@ function sortObject(){
 function createHistogram(arr){
   let histogram = [];
 
+  // calculate widths;
+  let longestWidth = 200;
+  let highestValue = arr[0].value;
+  let widthArr = [];
+
+  for(let i = 0; i < arr.length; i++){
+    widthArr.push((arr[i].value / highestValue));
+  }
+
   for (let i = 0; i < arr.length; i++){
-    histogram.push(<span>{arr[i].key} {arr[i].value}<br></br></span>);
+    let divStyle = {
+      width: widthArr[i] * longestWidth + 'px'
+    };
+    histogram.push(
+      <span>
+        {arr[i].key} {arr[i].value}
+        <div className="bar" style={divStyle}></div><br></br>
+      </span>
+    );
   }
 
   return histogram;
