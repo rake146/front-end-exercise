@@ -1,0 +1,33 @@
+.bar{
+    width: 200px;
+    height: 10px;
+    margin-top: 15px;
+    border-radius: 2px;
+    background-color: aquamarine;
+    display: inline-block;
+    margin-left: 20px;
+    float: right;
+}
+
+.bars{
+    display:inline-block;
+    margin-left: 20px;
+}
+
+.key{
+    float: left;
+}
+
+.val{
+    float: right;
+}
+
+.key-values{
+    width: 300px;
+    height: 300px;
+    display:inline-block;
+}
+
+.key-value-container{
+    float: left;
+}
